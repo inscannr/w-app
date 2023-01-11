@@ -1,0 +1,37 @@
+name: Build and publish a Docker image to the GHCR
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+
+  build-and-push-image:
+  
+    runs-on: ubuntu-latest
+    
+    env:
+      REGISTRY: ghcr.io
+      USER: ${{ github.actor }}
+      REPOSITORY: ${{ github.repository }}
+      PAT: ${{ secrets.GITHUB_TOKEN }}
+      VERSION: ${{ github.sha }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Build Image
+        run: docker build -t ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.VERSION }} .
+
+      - name: Log in to the GHCR
+        run: 
+          echo $PAT | docker login ghcr.io -u $USER --password-stdin
+          
+      - name: Push image to the GHCR
+        run: 
+          docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.VERSION }}

@@ -41,13 +41,10 @@ jobs:
           docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.VERSION }}
           
       - name: Deploy
-        uses: appleboy/ssh-action@v0.1.7
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host: ${{ env.IP }}
-          username: ${{ env.HOST }}
+          user: ${{ env.HOST }}
           key: ${{ env.PWD }}
-          port: ${{ env.PORT }}
-          script: |
-            sudo docker rm -f react_main
-            sudo docker run -d -p 80:80 --name react_main ghcr.io/inscannr/w-app:${{ env.VERSION }}
-    
+          first_ssh: sudo docker rm -f react_main
+          last_ssh: sudo docker run -d -p 80:80 --name react_main ghcr.io/inscannr/w-app:${{ env.VERSION }}

@@ -1,10 +1,11 @@
-name: Build and publish a Docker image to the GHCR
+name: Build and deploy rdi
 
 on:
   pull_request:
     branches: 
       - main
-
+  workflow_dispatch:
+  
 jobs:
 
   build-and-push-image:
@@ -17,6 +18,10 @@ jobs:
       REPOSITORY: ${{ github.repository }}
       PAT: ${{ secrets.GITHUB_TOKEN }}
       VERSION: ${{ github.sha }}
+      IP: ${{ secrets.ip }}
+      HOST: ${{ secrets.user }}
+      KNWHST: ${{ secrets.knwhst }}
+      PWD: ${{ secrets.pwd }}
 
     steps:
       - name: Checkout repository
@@ -33,3 +38,7 @@ jobs:
       - name: Push image to the GHCR
         run: 
           docker push ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.VERSION }}
+          
+      - name: Deploy new image
+        run:
+          ssh -i ${{ env.PWD }} ${{ env.USER }}@${{ env.IP }} && sudo docker rm -f react_main && sudo docker run -d -p 80:80 --name react_main ghcr.io/inscannr/w-app:${{ env.VERSION }} 

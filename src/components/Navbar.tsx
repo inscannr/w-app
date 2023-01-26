@@ -9,10 +9,6 @@ import Button from "./common/Button";
 import Modal from "./common/Modal";
 import LoginForm from "./LoginForm";
 
-type Props = {
-  openModal: (open: boolean) => void;
-};
-
 const navigation = [
   { name: "Dashboard", href: "#" },
   { name: "Features", href: "#" },

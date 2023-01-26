@@ -10,8 +10,8 @@ export default function LoginForm() {
 
   const submitHandler = async (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
-    //CALL API
-    console.log({ loginCredentials });
+
+    console.log("CALL API");
   };
 
   return (

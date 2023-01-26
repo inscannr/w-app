@@ -1,4 +1,10 @@
-const InputField = (props) => {
+type Props = {
+  id: string;
+  label: string;
+  type: string;
+};
+
+const InputField = (props: Props) => {
   const { id, label, type } = props;
   return (
     <div className="mt-2" id={id}>

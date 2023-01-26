@@ -1,24 +1,14 @@
-import { Routes, Route, Link } from "react-router-dom";
-import ModalPage from "./pages/ModalPage";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import LandingPage from "./pages/LandingPage";
 
 const App = () => {
   return (
-    <>
-      <nav>
-        <ul className="flex flex-row gap-3 font-bold text-xl px-2">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </nav>
+    <Layout>
       <Routes>
-        <Route path="/" />
-        <Route path="/login" element={<ModalPage />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
-    </>
+    </Layout>
   );
 };
 

@@ -1,20 +1,20 @@
 import { useState } from "react";
-import Modal from "../components/Modal";
+import Modal from "../components/Modal.js";
 import Login from "../components/Login";
 
 const ModalPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = () => {
+  const modalSwitchHandler = () => {
     setShowModal(!showModal);
   };
 
   const modal = (
-    <Modal onClose={handleClick}>
+    <Modal modalSwitchHandler={modalSwitchHandler}>
       <div className="">
         <p className="flex justify-center text-2xl font-bold">Login</p>
         <div className="flex justify-center mt-10">
-          <Login onClose={handleClick} />
+          <Login modalSwitchHandler={modalSwitchHandler} />
         </div>
       </div>
     </Modal>
@@ -23,7 +23,7 @@ const ModalPage = () => {
   return (
     <div>
       <button
-        onClick={handleClick}
+        onClick={modalSwitchHandler}
         className="mt-3 px-3 rounded-md bg-gray-300"
       >
         open login form

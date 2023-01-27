@@ -1,7 +1,12 @@
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
 
-const Modal = ({ onClose, children }) => {
+type Props = {
+  modalSwitchHandler: () => void;
+  children: React.ReactNode;
+};
+
+const Modal = ({ modalSwitchHandler, children }: Props) => {
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
 
@@ -9,11 +14,12 @@ const Modal = ({ onClose, children }) => {
       document.body.classList.remove("overflow-hidden");
     };
   }, []);
+
   return ReactDOM.createPortal(
     <div>
       <div
-        className="absolute inset-0 bg-gradient-to-r from-purple-500 via-sky-500 via-cyan-500 to-emerald-500"
-        onClick={onClose}
+        className="absolute inset-0 bg-gradient-to-r from-purple-500 via-cyan-500 to-emerald-500"
+        onClick={modalSwitchHandler}
       ></div>
       <div className="flex my-10">
         <div className="w-1/3"></div>
@@ -23,7 +29,7 @@ const Modal = ({ onClose, children }) => {
         <div className="w-1/3"></div>
       </div>
     </div>,
-    document.querySelector(".modal-container")
+    document.querySelector(".modal-container")!
   );
 };
 

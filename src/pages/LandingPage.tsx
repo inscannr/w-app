@@ -1,34 +1,35 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 import Button from "../components/common/Button";
 
 export default function LandingPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
+    <div className="lg:flex lg:items-center lg:gap-x-10">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
         <div className="flex">
           <div className="relative flex items-center gap-x-4 rounded-full py-1 px-4 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-slate-400/20 dark:hover:ring-slate-200/50">
-            <span className="font-semibold text-indigo-600">We’re hiring</span>
+            <span className="font-semibold text-indigo-600">Beta App</span>
             <span className="h-4 w-px bg-gray-900/10" aria-hidden="true" />
-            <a
-              href="#"
+            <Link
+              to="/roadmap"
               className="flex items-center gap-x-1 dark:text-slate-400"
             >
               <span className="absolute inset-0" aria-hidden="true" />
-              See open positions
+              See roadmap
               <ChevronRightIcon
                 className="-mr-2 h-5 w-5 text-gray-400"
                 aria-hidden="true"
               />
-            </a>
+            </Link>
           </div>
         </div>
-        <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-6xl">
-          A better way to ship your projects
+        <h1 className="mt-10 max-w-xl text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-6xl">
+          A better way to manage your money
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          Esse id magna consectetur fugiat non dolor in ad laboris magna laborum
-          ea consequat. Nisi irure aliquip nisi adipisicing veniam voluptate id.
-          In veniam incididunt ex veniam adipisicing sit.
+          A money tracking app which automatically categorize expenses from
+          scanned receipts, providing users with a quick and accurate overview
+          of their spending habits and helping them manage their budget.
         </p>
         <div className="mt-10 flex items-center gap-x-6">
           <div>

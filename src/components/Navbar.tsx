@@ -51,7 +51,9 @@ function Navbar() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <ThemePicker />
+            <div className="w-40 px-4">
+              <ThemePicker />
+            </div>
 
             <div className="w-32">
               <Button buttonType="secondary" onClick={() => setOpenModal(true)}>
@@ -102,13 +104,13 @@ function Navbar() {
                       setMobileMenuOpen(false);
                       setOpenModal(true);
                     }}
-                    className="-mx-3 block w-full rounded-lg py-2.5 px-3 text-left text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
+                    className="-mx-3 block w-full rounded-lg py-2.5 px-3 text-left text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10 dark:text-slate-200"
                   >
                     Log in
                   </button>
-                  <div className="-mx-3">
-                    <ThemePicker />
-                  </div>
+                </div>
+                <div className="w-full py-6">
+                  <ThemePicker />
                 </div>
               </div>
             </div>

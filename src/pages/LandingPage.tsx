@@ -1,23 +1,18 @@
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-
-const navigation = [
-  { name: "Dashboard", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Team", href: "#" },
-];
+import Button from "../components/common/Button";
 
 export default function LandingPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
         <div className="flex">
-          <div className="relative flex items-center gap-x-4 rounded-full py-1 px-4 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+          <div className="relative flex items-center gap-x-4 rounded-full py-1 px-4 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-slate-400/20 dark:hover:ring-slate-200/50">
             <span className="font-semibold text-indigo-600">We’re hiring</span>
             <span className="h-4 w-px bg-gray-900/10" aria-hidden="true" />
-            <a href="#" className="flex items-center gap-x-1">
+            <a
+              href="#"
+              className="flex items-center gap-x-1 dark:text-slate-400"
+            >
               <span className="absolute inset-0" aria-hidden="true" />
               See open positions
               <ChevronRightIcon
@@ -27,7 +22,7 @@ export default function LandingPage() {
             </a>
           </div>
         </div>
-        <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+        <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-6xl">
           A better way to ship your projects
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -36,18 +31,12 @@ export default function LandingPage() {
           In veniam incididunt ex veniam adipisicing sit.
         </p>
         <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="#"
-            className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Get started
-          </a>
-          <a
-            href="#"
-            className="rounded-md border-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-indigo-600 border shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Learn more <span aria-hidden="true">→</span>
-          </a>
+          <div>
+            <Button buttonType="primary">Get started</Button>
+          </div>
+          <div>
+            <Button buttonType="secondary">Learn more</Button>
+          </div>
         </div>
       </div>
       <div className="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">

@@ -8,6 +8,7 @@ import {
 import Button from "./common/Button";
 import Modal from "./common/Modal";
 import LoginForm from "./LoginForm";
+import ThemePicker from "./common/ThemePicker";
 
 const navigation = [
   { name: "Dashboard", href: "#" },
@@ -43,13 +44,15 @@ function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-200"
               >
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <ThemePicker />
+
             <div className="w-32">
               <Button buttonType="secondary" onClick={() => setOpenModal(true)}>
                 <span className="flex items-center justify-center">
@@ -61,7 +64,7 @@ function Navbar() {
           </div>
         </nav>
         <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-          <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
+          <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 dark:bg-slate-900 lg:hidden ">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -73,7 +76,7 @@ function Navbar() {
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-slate-200"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
@@ -87,19 +90,25 @@ function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
+                      className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10 dark:text-slate-200"
                     >
                       {item.name}
                     </a>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setOpenModal(true);
+                    }}
+                    className="-mx-3 block w-full rounded-lg py-2.5 px-3 text-left text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                   >
                     Log in
-                  </a>
+                  </button>
+                  <div className="-mx-3">
+                    <ThemePicker />
+                  </div>
                 </div>
               </div>
             </div>

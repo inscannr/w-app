@@ -11,7 +11,7 @@ const InputField = (props: Props) => {
     <div>
       <label
         htmlFor={label}
-        className="block text-sm font-medium capitalize text-gray-700"
+        className="block text-sm font-medium capitalize text-gray-700 dark:text-slate-200"
       >
         {label}
       </label>
@@ -24,7 +24,7 @@ const InputField = (props: Props) => {
           onChange={onChange}
           required
           autoComplete="off"
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-slate-600 dark:bg-slate-800 sm:text-sm"
         />
       </div>
     </div>

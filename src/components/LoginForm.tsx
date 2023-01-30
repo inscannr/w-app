@@ -17,7 +17,7 @@ export default function LoginForm() {
   return (
     <>
       <div className="flex flex-col justify-center px-5 py-2">
-        <h2 className="mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+        <h2 className="mb-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
           Sign in to your account
         </h2>
 
@@ -46,22 +46,7 @@ export default function LoginForm() {
               }
             />
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
-
+            <div className="flex items-center justify-end">
               <div className="text-sm">
                 <a
                   href="#"
@@ -80,10 +65,10 @@ export default function LoginForm() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
+                <div className="w-full border-t border-gray-300 dark:border-gray-600" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-2 text-gray-500">
+                <span className="bg-white px-2 text-gray-500 dark:bg-slate-900">
                   Or continue with
                 </span>
               </div>
@@ -93,7 +78,7 @@ export default function LoginForm() {
               <div>
                 <a
                   href="#"
-                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 dark:border-slate-900 dark:bg-slate-800"
                 >
                   <span className="sr-only">Sign in with Facebook</span>
                   <svg
@@ -114,7 +99,7 @@ export default function LoginForm() {
               <div>
                 <a
                   href="#"
-                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 dark:border-slate-900 dark:bg-slate-800"
                 >
                   <span className="sr-only">Sign in with Twitter</span>
                   <svg
@@ -131,7 +116,7 @@ export default function LoginForm() {
               <div>
                 <a
                   href="#"
-                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+                  className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 dark:border-slate-900 dark:bg-slate-800"
                 >
                   <span className="sr-only">Sign in with GitHub</span>
                   <svg

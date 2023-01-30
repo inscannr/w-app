@@ -14,7 +14,8 @@ function Button({ children, buttonType, onClick }: Props) {
       buttonStyle = "bg-indigo-600 text-white";
       break;
     case "secondary":
-      buttonStyle = "border-indigo-600 text-indigo-600 border hover:text-white";
+      buttonStyle =
+        "border-indigo-600 text-indigo-600 border hover:text-white dark:text-slate-200";
     default:
       break;
   }

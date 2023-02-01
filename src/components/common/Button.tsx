@@ -22,7 +22,7 @@ function Button({ children, buttonType, onClick }: Props) {
 
   return (
     <button
-      className={`w-full rounded-md px-3.5 py-1.5 text-base font-semibold leading-7 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${buttonStyle}`}
+      className={`w-full rounded-md px-3.5 py-1.5 text-sm font-semibold leading-7 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 lg:text-base ${buttonStyle}`}
       onClick={onClick}
     >
       {children}

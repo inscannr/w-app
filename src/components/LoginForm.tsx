@@ -3,6 +3,7 @@ import InputField from "./common/InputField";
 import { useState } from "react";
 
 export default function LoginForm() {
+  const [isLoginPage, setIsLoginPage] = useState(true);
   const [loginCredentials, setLoginCredentials] = useState({
     email: "",
     password: "",
@@ -11,14 +12,15 @@ export default function LoginForm() {
   const submitHandler = async (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
 
-    console.log("CALL API");
+    if (isLoginPage) console.log("CALL LOGIN API");
+    else console.log("CALL REGISTER API");
   };
 
   return (
     <>
       <div className="flex flex-col justify-center px-5 py-2">
         <h2 className="mb-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Sign in to your account
+          {isLoginPage ? "Sign in to your account" : "Register your account"}
         </h2>
 
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -45,8 +47,32 @@ export default function LoginForm() {
                 })
               }
             />
+            {!isLoginPage && (
+              <InputField
+                label="Confirm Password"
+                type="password"
+                id="password"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setLoginCredentials({
+                    ...loginCredentials,
+                    password: e.target.value,
+                  })
+                }
+              />
+            )}
 
-            <div className="flex items-center justify-end">
+            <div className="flex items-center justify-between">
+              <div className="text-sm">
+                <button
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  onClick={() => setIsLoginPage(!isLoginPage)}
+                  type="button"
+                >
+                  {isLoginPage
+                    ? "Don't have an account?"
+                    : "Already have an account?"}
+                </button>
+              </div>
               <div className="text-sm">
                 <a
                   href="#"
@@ -58,7 +84,9 @@ export default function LoginForm() {
             </div>
 
             <div>
-              <Button buttonType="primary">Sign in</Button>
+              <Button buttonType="primary">
+                {isLoginPage ? "Sign in" : "Register"}
+              </Button>
             </div>
           </form>
 
